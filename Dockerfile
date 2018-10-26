@@ -12,6 +12,11 @@ RUN apk --no-cache add openssl
 
 RUN sh generate-cert.sh
 
+ENV JWT_HEADER ""
+ENV FORWARD_HEADERS ""
+ENV ECHO_TO_BODY "true"
+ENV ECHO_TO_LOG "true"
+
 EXPOSE 80 443
 
 
