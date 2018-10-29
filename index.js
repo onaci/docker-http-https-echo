@@ -21,11 +21,11 @@ app.use(function(req, res, next){
 app.all('*', (req, res) => {
   if (process.env.FORWARD_HEADERS) {
     const forwardHeadersCsv = process.env.FORWARD_HEADERS;
-    console.log("forwardHeadersCsv '" + forwardHeadersCsv + "'");
+    //console.log("forwardHeadersCsv '" + forwardHeadersCsv + "'");
     forwardHeadersCsv.split(',').forEach(function(header){
       var safeHeader = header.trim().toLowerCase();
       if (safeHeader in req.headers){
-        console.log("Forwarding header '" + safeHeader + "'");
+        //console.log("Forwarding header '" + safeHeader + "'");
         res.setHeader(safeHeader, req.headers[safeHeader]);
       }
     });
